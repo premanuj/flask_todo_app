@@ -39,6 +39,7 @@ class Service(object):
     def all(self):
         """Returns a generator containing all instances of the service's model.
         """
+        print(self.__model__.query.all())
         return self.__model__.query.all()
 
     def get(self, id):

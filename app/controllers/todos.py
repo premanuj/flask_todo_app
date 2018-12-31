@@ -12,7 +12,10 @@ todosSchema = TodoSchema(many=True)
 @todos_bp.route("", methods=["GET"])
 def get_todos():
     todos = todoService.all()
+    for todo in todos:
+        print(todo.id)
     result = todosSchema.dump(todos)
+    print("TODOS: ", result)
     return res.success(result.data, 200)
 
 
